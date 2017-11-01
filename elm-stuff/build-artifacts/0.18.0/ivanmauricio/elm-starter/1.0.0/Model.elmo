@@ -1,0 +1,11 @@
+var _ivanmauricio$elm_starter$Model$Model = F2(
+	function (a, b) {
+		return {threadIds: a, currentThread: b};
+	});
+var _ivanmauricio$elm_starter$Model$Post = F4(
+	function (a, b, c, d) {
+		return {subject: a, body: b, postId: c, date: d};
+	});
+var _ivanmauricio$elm_starter$Model$ReceivePosts = function (a) {
+	return {ctor: 'ReceivePosts', _0: a};
+};

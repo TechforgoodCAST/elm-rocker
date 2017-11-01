@@ -1,0 +1,7 @@
+var _ivanmauricio$elm_starter$Main$main = _elm_lang$html$Html$program(
+	{
+		update: _ivanmauricio$elm_starter$Update$update,
+		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none),
+		view: _ivanmauricio$elm_starter$View$view,
+		init: _ivanmauricio$elm_starter$Update$init
+	})();

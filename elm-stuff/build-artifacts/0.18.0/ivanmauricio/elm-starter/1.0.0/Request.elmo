@@ -1,0 +1,102 @@
+var _ivanmauricio$elm_starter$Request$postDecoder = A3(
+	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+	'creation_date',
+	_elm_community$json_extra$Json_Decode_Extra$date,
+	A3(
+		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+		'message_id',
+		_elm_lang$core$Json_Decode$int,
+		A3(
+			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+			'body',
+			_elm_lang$core$Json_Decode$string,
+			A3(
+				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+				'subject',
+				_elm_lang$core$Json_Decode$string,
+				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_ivanmauricio$elm_starter$Model$Post)))));
+var _ivanmauricio$elm_starter$Request$payloadDecoder = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'hits',
+		_1: {
+			ctor: '::',
+			_0: 'hits',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$list(
+		A2(_elm_lang$core$Json_Decode$field, '_source', _ivanmauricio$elm_starter$Request$postDecoder)));
+var _ivanmauricio$elm_starter$Request$postBody = _elm_lang$core$Json_Encode$object(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'query',
+			_1: _elm_lang$core$Json_Encode$object(
+				{
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'terms',
+						_1: _elm_lang$core$Json_Encode$object(
+							{
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'topic_id',
+									_1: _elm_lang$core$Json_Encode$list(
+										{
+											ctor: '::',
+											_0: _elm_lang$core$Json_Encode$int(5804),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$core$Json_Encode$int(5882),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$core$Json_Encode$int(8995),
+													_1: {ctor: '[]'}
+												}
+											}
+										})
+								},
+								_1: {ctor: '[]'}
+							})
+					},
+					_1: {ctor: '[]'}
+				})
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'sort',
+				_1: _elm_lang$core$Json_Encode$object(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'message_id',
+							_1: _elm_lang$core$Json_Encode$object(
+								{
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'order',
+										_1: _elm_lang$core$Json_Encode$string('desc')
+									},
+									_1: {ctor: '[]'}
+								})
+						},
+						_1: {ctor: '[]'}
+					})
+			},
+			_1: {ctor: '[]'}
+		}
+	});
+var _ivanmauricio$elm_starter$Request$postRequest = A3(
+	_elm_lang$http$Http$post,
+	'http://localhost:9200/forum/_search?size=250',
+	_elm_lang$http$Http$jsonBody(_ivanmauricio$elm_starter$Request$postBody),
+	_ivanmauricio$elm_starter$Request$payloadDecoder);
