@@ -20,5 +20,5 @@ elm-package install
 ## Building
 
 ```bash
-elm-live src/Main.elm --open --pushstate --debug --output=elm.js
+elm-live src/Main.elm --open --dir=public --pushstate --debug --output=public/elm.js
 ```
